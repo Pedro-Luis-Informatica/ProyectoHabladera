@@ -6,7 +6,7 @@
     <title>WaveCast</title>
     <link
       rel="shortcut icon"
-      href="./src/imagenes/Logos/Favicon.svg"
+      href="../imagenes/Logos/Favicon.svg"
       type="image/x-icon"
     />
     <link
@@ -17,55 +17,37 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/style/grid-flex/index.css" />
-    <link rel="stylesheet" href="./src/style/grid-flex/menu.css" />
-    <link rel="stylesheet" href="./src/style/grid-flex/seccion.css" />
-    <link rel="stylesheet" href="./src/style/grid-flex/tarjeta.css" />
-    <link rel="stylesheet" href="./src/style/grid-flex/navbar.css" />
-    <link rel="stylesheet" href="./src/style/base.css" />
-    <link rel="stylesheet" href="./src/style/responsivo.css" />
+    <link rel="stylesheet" href="../style/grid-flex/index.css" />
+    <link rel="stylesheet" href="../style/grid-flex/menu.css" />
+    <link rel="stylesheet" href="../style/grid-flex/seccion.css" />
+    <link rel="stylesheet" href="../style/grid-flex/tarjeta.css" />
+    <link rel="stylesheet" href="../style/grid-flex/navbar.css" />
+    <link rel="stylesheet" href="../style/base.css" />
+    <link rel="stylesheet" href="../style/responsivo.css" />
   </head>
 
   <body>
     <header class="cabecera container">
-      <a href="#"
-        ><img
-          class="cabecera__logo"
-          src="./src/imagenes/Logos/CastWave_logo.svg"
-          alt="Logo de WaveCast"
-      /></a>
-      <button class="cabecera__boton">
-        <img
-          src="./src/imagenes/Iconos/flecha-volver.svg"
-          alt="Flecha volver"
-        />
-      </button>
-      <button class="cabecera__boton cabecera__boton__avanzar">
-        <img
-          src="./src/imagenes/Iconos/flecha-avanzar.svg"
-          alt="Flecha avanzar"
-        />
-      </button>
+      <h2 class="seccion__titulo">TUS PODCASTS GUARDADOS</h2>
     </header>
-
     <aside class="menu-lateral">
       <a href="#" class="menu-lateral__logo"
-        ><img
-          src="./src/imagenes/Logos/CastWave_logo.svg"
-          alt="Logo de CastWave"
+        ><img src="../imagenes/Logos/CastWave_logo.svg" alt="Logo de CastWave"
       /></a>
       <nav>
         <ul>
           <li class="menu-lateral__link activo">
             <button aria-label="Boton acceso home">
-              <img src="./src/imagenes/Iconos/home_.svg" alt="Logo de Home" />
-              <a href="index.html">Home</a>
+              <img src="../imagenes/Iconos/home_.svg" alt="Logo de Home" /><a
+                href="../../index.html"
+                >Home</a
+              >
             </button>
           </li>
           <li class="menu-lateral__link">
             <button aria-label="Boton acceso campo de busca">
               <img
-                src="./src/imagenes/Iconos/search-blanco.svg"
+                src="../imagenes/Iconos/search-blanco.svg"
                 alt="Logo do Boton de busca"
               />Busca
             </button>
@@ -73,7 +55,7 @@
           <li class="menu-lateral__link">
             <button aria-label="Boton acceso su biblioteca">
               <img
-                src="./src/imagenes/Iconos/bookmark-blanco.svg"
+                src="../imagenes/Iconos/bookmark-blanco.svg"
                 alt="Logo do Boton su biblioteca"
               />Su Biblioteca
             </button>
@@ -85,7 +67,7 @@
         <li class="menu-lateral__link">
           <button aria-label="Boton crear playlist">
             <img
-              src="./src/imagenes/Iconos/add-box-blanco.svg"
+              src="../imagenes/Iconos/add-box-blanco.svg"
               alt="Logo do Boton crear playlist"
             />Crear Playlist
           </button>
@@ -93,31 +75,15 @@
         <li class="menu-lateral__link">
           <button aria-label="Boton podcasts guardados" data-guardados>
             <img
-              src="./src/imagenes/Iconos/stars-blanco.svg"
+              src="../imagenes/Iconos/stars-blanco.svg"
               alt="Logo do Boton Podcasts guardados"
-            />
-            <a href="src/pages/podcastsGuardados.html" rel="noopener noreferrer"
-              >Podcasts guardados</a
-            >
+            />Podcasts guardados
           </button>
         </li>
       </ul>
     </aside>
     <main class="principal container">
-      <section class="seccion seccion-horizontal">
-        <h2 class="seccion__titulo">Reproducidos recientemente</h2>
-        <ul class="seccion__tarjetas" data-tarjetas>
-          <!-- cartas de reproduccion -->
-        </ul>
-      </section>
       <section class="seccion seccion-vertical">
-        <h2 class="seccion__titulo">Indicados para ti</h2>
-        <a
-          class="seccion__link"
-          href="#"
-          aria-label="Clique aqui para ver mas sobre Hipsters Punto Tech"
-          >Ver más</a
-        >
         <ul class="seccion__tarjetas" data-indicados>
           <!-- cartas para mostrar -->
         </ul>
@@ -130,7 +96,7 @@
           <form action=".">
             <button aria-label="Boton acceso Home">
               <img
-                src="./src/imagenes/Iconos/home-blanco.svg"
+                src="../imagenes/Iconos/home-blanco.svg"
                 alt="Logo do Boton acceso Home"
               />Home
             </button>
@@ -140,7 +106,7 @@
           <form action=".">
             <button aria-label="Boton acceso campo de busqueda">
               <img
-                src="./src/imagenes/Iconos/search-blanco.svg"
+                src="../imagenes/Iconos/search-blanco.svg"
                 alt="Logo do Boton acceso campo de busqueda"
               />Busca
             </button>
@@ -150,7 +116,7 @@
           <form action=".">
             <button aria-label="Boton acceso su biblioteca">
               <img
-                src="./src/imagenes/Iconos/bookmark-blanco.svg"
+                src="../imagenes/Iconos/bookmark-blanco.svg"
                 alt="Logo do Boton acceso su biblioteca"
               />Su Biblioteca
             </button>
@@ -163,5 +129,5 @@
     src="https://kit.fontawesome.com/ef3eea8822.js"
     crossorigin="anonymous"
   ></script>
-  <script type="module" src="src/js/main.js"></script>
+  <script type="module" src="/src/js/cardGuardadas.js"></script>
 </html>

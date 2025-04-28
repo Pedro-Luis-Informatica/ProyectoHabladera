@@ -1,26 +1,10 @@
-// funcion para generar nuestras tarjetas de podcasts
-// import { podcasts } from "./podcasts";
-
-/*
-<li class="tarjeta">
-            <img
-              class="tarjeta__imagen"
-              src="./src/imagenes/Imagens/hipsters-punto-tech/hipsters-punto-tech-techguide.png"
-              alt="Hipsters Punto Tech - TechGuide: Storytelling con datos"
-            />
-            <h3 class="tarjeta__titulo">TechGuide: Storytelling con datos</h3>
-            <h4 class="tarjeta__subtitulo">Hipsters Punto Tech</h4>
-            <i class="fa-regular fa-star"></i>
-          </li>
-*/
-
 const generadorCards = (podcast) => {
   const cardElement = document.createElement("li");
   cardElement.classList.add("tarjeta");
 
   const imgElemnt = document.createElement("img");
   imgElemnt.classList.add("tarjeta__imagen");
-  imgElemnt.src = podcast.imagen;
+  imgElemnt.src = podcast.image;
   imgElemnt.alt = podcast.title;
 
   const titleElement = document.createElement("h3");
@@ -33,38 +17,17 @@ const generadorCards = (podcast) => {
 
   const startElement = document.createElement("i");
   podcast.saved === "true"
-    ? startElement.classList.add("fa-solid", "fa-start")
-    : startElement.classList.add("fa-regular", "fa-start");
+    ? startElement.classList.add("fa-solid", "fa-star")
+    : startElement.classList.add("fa-regular", "fa-star");
 
-  cardElement.appendChild(imgElement);
+  cardElement.appendChild(imgElemnt);
   cardElement.appendChild(titleElement);
   cardElement.appendChild(subtitleElement);
-  cardElement.appendChild(starElement);
+  cardElement.appendChild(startElement);
 
   return cardElement;
 };
 
-/*
-<li>
-            <a class="tarjeta" href="#">
-              <img
-                class="tarjeta__imagen"
-                src="./src/imagenes/Imagens/reproducidos recientemente/hipter-fuera-de-control.png"
-                alt="Hipsters Fuera de Control"
-              />
-              <h3 class="tarjeta__titulo">Hipsters Punto Tech</h3>
-              <div class="tarjeta__player"></div>
-              <form class="tarjeta__boton" action=".">
-                <button aria-label="Play Podcast">
-                  <img
-                    src="./src/imagenes/Iconos/boton-play.svg"
-                    alt="Icono de Play"
-                  />
-                </button>
-              </form>
-            </a>
-          </li>
-*/
 const generadorPlayer = (podcast) => {
   const cardElement = document.createElement("li");
 
@@ -74,7 +37,7 @@ const generadorPlayer = (podcast) => {
 
   const imgElement = document.createElement("img");
   imgElement.classList.add("tarjeta__imagen");
-  imgElement.src = podcast.imagen;
+  imgElement.src = podcast.image;
   imgElement.alt = podcast.subtitle;
 
   const subtitleElement = document.createElement("h3");
@@ -89,7 +52,7 @@ const generadorPlayer = (podcast) => {
   formElement.action = ".";
 
   const buttonELement = document.createElement("button");
-  buttonELement.ariaLabel = "Play Podcasts";
+  buttonELement.setAttribute("aria-label", "Play Podcasts");
 
   const playIconElement = document.createElement("img");
   playIconElement.src = "./src/imagenes/Iconos/boton-play.svg";

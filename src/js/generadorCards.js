@@ -1,72 +1,51 @@
-const generadorCards = (podcast) => {
-  const cardElement = document.createElement("li");
-  cardElement.classList.add("tarjeta");
-
-  const imgElemnt = document.createElement("img");
-  imgElemnt.classList.add("tarjeta__imagen");
-  imgElemnt.src = podcast.image;
-  imgElemnt.alt = podcast.title;
-
-  const titleElement = document.createElement("h3");
-  titleElement.classList.add("tarjeta__titulo");
-  titleElement.textContent = podcast.title;
-
-  const subtitleElement = document.createElement("h4");
-  subtitleElement.classList.add("tarjeta__subtitulo");
-  subtitleElement.textContent = podcast.subtitle;
-
-  const startElement = document.createElement("i");
-  podcast.saved === "true"
-    ? startElement.classList.add("fa-solid", "fa-star")
-    : startElement.classList.add("fa-regular", "fa-star");
-
-  cardElement.appendChild(imgElemnt);
-  cardElement.appendChild(titleElement);
-  cardElement.appendChild(subtitleElement);
-  cardElement.appendChild(startElement);
-
-  return cardElement;
+const getBasePath = () => {
+  const path = window.location.pathname;
+  return path.includes("paginas") || path.includes("pages") ? "./" : "../";
 };
 
-const generadorPlayer = (podcast) => {
-  const cardElement = document.createElement("li");
+const resolveImagePath = (image, customBasePath) => {
+  if (image.startsWith("http://") || image.startsWith("https://")) {
+    return image;
+  }
+  const basePath =
+    customBasePath !== undefined ? customBasePath : getBasePath();
+  return `${basePath}${image.startsWith("../") ? image.substring(3) : image}`;
+};
 
-  const anchorElement = document.createElement("a");
-  anchorElement.classList.add("tarjeta");
-  anchorElement.href = "#";
+const generadorCards = ({ image, title, subtitle, saved }, customBasePath) => {
+  const card = document.createElement("li");
+  card.className = "tarjeta";
 
-  const imgElement = document.createElement("img");
-  imgElement.classList.add("tarjeta__imagen");
-  imgElement.src = podcast.image;
-  imgElement.alt = podcast.subtitle;
+  const imagePath = resolveImagePath(image, customBasePath);
+  card.innerHTML = `
+    <img class="tarjeta__imagen" src="${imagePath}" alt="${title}">
+    <h3 class="tarjeta__titulo">${title}</h3>
+    <h4 class="tarjeta__subtitulo">${subtitle}</h4>
+    <i class="${
+      saved === "true" || saved === true ? "fa-solid" : "fa-regular"
+    } fa-star"></i>
+  `;
+  return card;
+};
 
-  const subtitleElement = document.createElement("h3");
-  subtitleElement.classList.add("tarjeta__titulo");
-  subtitleElement.textContent = podcast.subtitle;
+const generadorPlayer = ({ image, subtitle }) => {
+  const card = document.createElement("li");
+  const imagePath = resolveImagePath(image);
+  const basePath = getBasePath();
 
-  const playerElement = document.createElement("div");
-  playerElement.classList.add("tarjeta__player");
-
-  const formElement = document.createElement("form");
-  formElement.classList.add("tarjeta__boton");
-  formElement.action = ".";
-
-  const buttonELement = document.createElement("button");
-  buttonELement.setAttribute("aria-label", "Play Podcasts");
-
-  const playIconElement = document.createElement("img");
-  playIconElement.src = "./src/imagenes/Iconos/boton-play.svg";
-  playIconElement.alt = "Icono de Play";
-
-  buttonELement.appendChild(playIconElement);
-  formElement.appendChild(buttonELement);
-  anchorElement.appendChild(imgElement);
-  anchorElement.appendChild(subtitleElement);
-  anchorElement.appendChild(playerElement);
-  anchorElement.appendChild(formElement);
-  cardElement.appendChild(anchorElement);
-
-  return cardElement;
+  card.innerHTML = `
+    <a href="#" class="tarjeta">
+      <img class="tarjeta__imagen" src="${imagePath}" alt="${subtitle}">
+      <h3 class="tarjeta__titulo">${subtitle}</h3>
+      <div class="tarjeta__player"></div>
+      <form class="tarjeta__boton" action=".">
+        <button aria-label="Play Podcasts">
+          <img src="${basePath}src/imagenes/Iconos/boton-play.svg" alt="Icono de Play">
+        </button>
+      </form>
+    </a>
+  `;
+  return card;
 };
 
 export { generadorPlayer, generadorCards };

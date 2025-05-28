@@ -63,12 +63,16 @@
             </button>
           </li>
           <li class="menu-lateral__link">
-            <button aria-label="Boton acceso campo de busca">
-              <img
-                src="./src/imagenes/Iconos/search-blanco.svg"
-                alt="Logo do Boton de busca"
-              />Busca
-            </button>
+            <div class="box">
+              <form name="search">
+                <input
+                  type="text"
+                  class="input"
+                  name="txt"
+                  onmouseout="this.value = ''; this.blur();"
+                />
+              </form>
+            </div>
           </li>
           <li class="menu-lateral__link">
             <button aria-label="Boton acceso su biblioteca">
